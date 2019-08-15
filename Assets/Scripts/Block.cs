@@ -8,32 +8,50 @@ public class Block : MonoBehaviour
     [SerializeField] GameObject blockSparklesVFX;
     // cached reference
     Level level;
-    GameSession gameStatus;
+    GameSession gameSession;
 
     private void Start()
     {
-        level = FindObjectOfType<Level>();
-        gameStatus = FindObjectOfType<GameSession>();
-        level.CountBreakableBlocks();
+        gameSession = FindObjectOfType<GameSession>();
+        CountBreakableBlocks();
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if(tag == "Breakable")
+        {
+            DestroyBlock();
+        }
     }
 
     private void DestroyBlock()
     {
-        TriggerSparklesVFX();
-        gameStatus.AddToScore();
-        level.BlockDestroyed();
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+
+        TriggerSparklesVFX();
+        UpdateGameSession();
         Destroy(gameObject);
+    }
+
+    private void UpdateGameSession()
+    {
+        gameSession.AddToScore();
+        level.BlockDestroyed();
     }
 
     private void TriggerSparklesVFX()
     {
         GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
         Destroy(sparkles, 2f);
+    }
+
+    private void CountBreakableBlocks()
+    {
+        level = FindObjectOfType<Level>();
+        if (tag == "Breakable")
+        {
+            level.CountBlocks();
+        }
     }
 }
