@@ -7,6 +7,14 @@ public class LoseCollider : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("Game Over");
+        Debug.Log(GameObject.FindGameObjectsWithTag("Ball").Length);
+        if(GameObject.FindGameObjectsWithTag("Ball").Length <= 1)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
+        else
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

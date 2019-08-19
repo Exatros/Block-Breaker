@@ -62,7 +62,6 @@ public class Block : MonoBehaviour
     private void DestroyBlock()
     {
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
-
         TriggerSparklesVFX();
         UpdateGameSession();
         Destroy(gameObject);

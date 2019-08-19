@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 5441648416661337201}
   - component: {fileID: 5441648416661337200}
   - component: {fileID: 5441648416661337206}
+  - component: {fileID: -4271129853433558112}
   - component: {fileID: 6214107356320619710}
   m_Layer: 0
-  m_Name: Unbreakable Block
-  m_TagString: Unbreakable
+  m_Name: 1-Hit Block Extra Ball
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1fbb000da767286459d76a65a07a215b, type: 3}
-  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  m_Color: {r: 0, g: 0.7134629, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,6 +108,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &-4271129853433558112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5441648416661337203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f872a8497f3109c47ba041039a61abb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 8118196072795675010, guid: ddadd8a8ece8860409eaff2905435f76, type: 3}
 --- !u!114 &6214107356320619710
 MonoBehaviour:
   m_ObjectHideFlags: 0

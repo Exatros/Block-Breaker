@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -415187876372644934}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31586b5d0e3e6b241acb73311eedb7ac, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9f22f1431c14bf84baffc1ecc2117d05, type: 3}
   - {fileID: 8300000, guid: 7f4850102bbe79c44ab2f3a83fcca480, type: 3}
   - {fileID: 8300000, guid: ccc817f57b62bd444b88e51974b2ab2e, type: 3}
+  randomFactor: 0.5
 --- !u!82 &-415187876372644934
 AudioSource:
   m_ObjectHideFlags: 0
