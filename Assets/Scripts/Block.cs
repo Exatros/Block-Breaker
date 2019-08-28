@@ -27,20 +27,28 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (tag == "Breakable" && !isWasCollision)
+        if (tag == "Breakable")
         {
-            isWasCollision = true;
             HandleHit();
         }
     }
-
+    //&& !isWasCollision  
+      //      isWasCollision = true;
+    //
     private void HandleHit()
     {
         timesHit++;
         int maxHits = hitSprite.Length + 1;
-        if (timesHit >= maxHits)
+        if (timesHit >= maxHits )
         {
-            DestroyBlock();
+
+            if(!isWasCollision)
+            {
+                isWasCollision = true;
+                TriggerExtraBalls();
+                DestroyBlock();
+            }
+
         }
         else
         {
@@ -88,6 +96,14 @@ public class Block : MonoBehaviour
         if (tag == "Breakable")
         {
             level.CountBlocks();
+        }
+    }
+
+    private void TriggerExtraBalls()
+    {
+        if (GetComponent<ExtraBalls>() != null)
+        {
+            GetComponent<ExtraBalls>().AddExtraBalls();
         }
     }
 }

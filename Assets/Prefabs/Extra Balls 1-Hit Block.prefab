@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 8118196072795675010, guid: ddadd8a8ece8860409eaff2905435f76, type: 3}
+  numberOfExtraBalls: 5
 --- !u!114 &6214107356320619710
 MonoBehaviour:
   m_ObjectHideFlags: 0

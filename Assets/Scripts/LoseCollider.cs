@@ -9,8 +9,6 @@ public class LoseCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(countBalls);
-
         if(countBalls <= 1)
         {
             SceneManager.LoadScene("Game Over");

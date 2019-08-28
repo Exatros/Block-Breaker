@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtremeMode : MonoBehaviour
+public class ExtraBalls : MonoBehaviour
 {
     [SerializeField] GameObject Ball;
     [SerializeField] int numberOfExtraBalls = 5;
@@ -18,16 +18,16 @@ public class ExtremeMode : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void AddExtraBalls()
     {
         FindObjectOfType<LoseCollider>().AddBalls(numberOfExtraBalls);
-        for(int i = 0; i < numberOfExtraBalls; i++)
+        for (int i = 0; i < numberOfExtraBalls; i++)
         {
             GameObject newBall = Instantiate(Ball, transform.position, transform.rotation);
             MoveNewBall(newBall);
         }
-
     }
+
 
     private void MoveNewBall(GameObject ball)
     {
