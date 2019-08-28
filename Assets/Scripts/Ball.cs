@@ -18,10 +18,12 @@ public class Ball : MonoBehaviour
     // Cached component references
     AudioSource myAudioSource;
     Rigidbody2D myRigidbody2D;
+    LoseCollider loseCollider;
 
     // Start is called before the first frame update
     void Start()
     {
+        loseCollider = FindObjectOfType<LoseCollider>();
         if (GameObject.FindGameObjectsWithTag("Ball").Length <= 1)
         {
             paddleToBalVector = transform.position - paddle1.transform.position;
@@ -39,6 +41,11 @@ public class Ball : MonoBehaviour
             LaunchOnMouseClick();
         }
 
+        if(transform.position.y < -5)
+        {
+            loseCollider.DecreseCountBalls();
+            Destroy(gameObject);
+        }
     }
 
     private void LaunchOnMouseClick()

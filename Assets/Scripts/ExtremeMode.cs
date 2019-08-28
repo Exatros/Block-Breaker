@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExtremeMode : MonoBehaviour
 {
     [SerializeField] GameObject Ball;
+    [SerializeField] int numberOfExtraBalls = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,8 @@ public class ExtremeMode : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        for(int i = 0; i < 5; i++)
+        FindObjectOfType<LoseCollider>().AddBalls(numberOfExtraBalls);
+        for(int i = 0; i < numberOfExtraBalls; i++)
         {
             GameObject newBall = Instantiate(Ball, transform.position, transform.rotation);
             MoveNewBall(newBall);

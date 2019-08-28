@@ -16,6 +16,7 @@ public class Block : MonoBehaviour
     // state variables
     [SerializeField] int timesHit; //SF only for debug
 
+    bool isWasCollision = false; // Only one colision per block
     private void Start()
     {
         gameSession = FindObjectOfType<GameSession>();
@@ -25,8 +26,10 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(tag == "Breakable")
+
+        if (tag == "Breakable" && !isWasCollision)
         {
+            isWasCollision = true;
             HandleHit();
         }
     }

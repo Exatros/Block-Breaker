@@ -5,9 +5,10 @@ using TMPro;
 public class GameSession : MonoBehaviour
 {
     // config params
-    [Range(0.1f,1f)][SerializeField] float gameSpeed = 0.5f;
+    [Range(0.1f,5f)][SerializeField] float gameSpeed = 0.5f;
     [SerializeField] int pointsPerBloackDestroyed = 2;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] bool isAutoPlayEnabled;
 
     // state variables
     [SerializeField] int currentScore = 0;
@@ -49,5 +50,10 @@ public class GameSession : MonoBehaviour
     public void ResetGame()
     {
         Destroy(gameObject);
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 }

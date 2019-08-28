@@ -5,17 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class LoseCollider : MonoBehaviour
 {
+    [SerializeField] int countBalls = 1;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Ball").Length);
+        Debug.Log(countBalls);
 
-        if(GameObject.FindGameObjectsWithTag("Ball").Length <= 1)
+        if(countBalls <= 1)
         {
             SceneManager.LoadScene("Game Over");
         }
         else
         {
+            countBalls--;
             Destroy(collision.gameObject);
         }
+    }
+
+    public void AddBalls(int count)
+    {
+        countBalls += count;
+    }
+
+    public void DecreseCountBalls()
+    {
+        countBalls--;
     }
 }
