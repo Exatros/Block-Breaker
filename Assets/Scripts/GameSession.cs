@@ -14,6 +14,7 @@ public class GameSession : MonoBehaviour
 
     private void Awake()
     {
+        Ball.hasStarted = false;
         int gameStatusCount = FindObjectsOfType<GameSession>().Length;
         if(gameStatusCount > 1)
         {
